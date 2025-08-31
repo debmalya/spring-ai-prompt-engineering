@@ -3,6 +3,8 @@ package guru.springframework.springaipromptengineering;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import java.util.Map;
  * Created by jt, Spring Framework Guru.
  */
 @SpringBootTest
+@ActiveProfiles({"test", "prompt-engineering"})
 public class GiveClearInstructionsTests extends BaseTestClass {
 
     @Test
@@ -17,6 +20,16 @@ public class GiveClearInstructionsTests extends BaseTestClass {
         String prompt = """
                 Generate a list of 4 made up cars. Provide them in a JSON format
                 with the following attributes: make, model, year, and color. Return the JSON string.
+                """;
+
+        System.out.println(chat(prompt));
+    }
+
+    @Test
+    void testGetSpringAIJobs() {
+        String prompt = """
+                Generate a list of Spring AI jobs. Provide them in a YAML format
+                with the following attributes: company, job-location, skill-set, and application-link. Return the YAML string.
                 """;
 
         System.out.println(chat(prompt));
