@@ -6,11 +6,13 @@ import org.springframework.ai.chat.prompt.PromptTemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 /**
  * Created by jt, Spring Framework Guru.
  */
 @SpringBootTest
+@ActiveProfiles({"test"})
 public class BaseTestClass {
 
     @Autowired

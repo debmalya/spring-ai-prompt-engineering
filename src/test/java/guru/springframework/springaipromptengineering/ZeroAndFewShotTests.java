@@ -64,7 +64,7 @@ public class ZeroAndFewShotTests extends BaseTestClass {
         // other models at time of recording: gpt-4o, gpt-4.1, gpt-4.1-nano (fastest - cheapest), gpt-4.1-mini (faster - cheaper)
 
         OpenAiChatOptions openAiChatOptions = OpenAiChatOptions.builder()
-               // .temperature(1.2) //default is 0.7, lower is more deterministic, higher is more creative
+               // .temperature(0.2) //default is 0.7, lower is more deterministic, higher is more creative, then try with 1.9
                 .model("gpt-4o")
                 .build();
 

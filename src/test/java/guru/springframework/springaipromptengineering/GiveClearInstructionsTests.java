@@ -12,7 +12,6 @@ import java.util.Map;
  * Created by jt, Spring Framework Guru.
  */
 @SpringBootTest
-@ActiveProfiles({"test", "prompt-engineering"})
 public class GiveClearInstructionsTests extends BaseTestClass {
 
     @Test

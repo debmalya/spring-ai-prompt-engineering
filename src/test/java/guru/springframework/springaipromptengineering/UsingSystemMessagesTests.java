@@ -15,6 +15,26 @@ import java.util.List;
  */
 @SpringBootTest
 public class UsingSystemMessagesTests extends BaseTestClass {
+    @Test
+    void doveEggHatchingTest() {
+        String systemPrompt = """
+                You are a helpful AI assistant. Your role is an bird expert.
+                You answer questions about incubating dove eggs and welcoming paragraphs.
+                You hope the user will try to hatch eggs of different birds.
+                """;
+        SystemPromptTemplate systemPromptTemplate = new SystemPromptTemplate(systemPrompt);
+
+        Message systemMessage = systemPromptTemplate.createMessage();
+
+        PromptTemplate promptTemplate = new PromptTemplate("Tell me about what will happen after 10 days of incubation of a dove egg.");
+        Message userMessage2 = promptTemplate.createMessage();
+
+        List<Message> messages = List.of(systemMessage, userMessage2);
+
+        Prompt prompt = new Prompt(messages);
+
+        System.out.println(chatModel.call(prompt).getResult().getOutput().getText());
+    }
 
     @Test
     void cityGuideTest() {
